@@ -1,4 +1,10 @@
-pytest
-mock
+cryptography==1.6
 falcon==1.1.0
-oauthlib==1.1.2
+Jinja2==2.8
+mock==2.0.0
+oauthlib==2.0.1
+peewee==2.8.5
+pytest==3.0.5
+requests==2.12.3
+setuptools==30.2.0
+python_dateutil==2.6.0
