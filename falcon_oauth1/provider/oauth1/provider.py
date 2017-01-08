@@ -243,12 +243,12 @@ class OAuthProvider(object):
                     valid, oauth_req = func(valid, oauth_req)
 
                 if not valid:
-                    return self._on_error(req, resp)
+                    if not valid:
+                        raise falcon.HTTPMovedPermanently('/sign_in')
 
-                # alias user for convenience
-                req.user = oauth_req.access_token.user_id
-                req.oauth = oauth_req
-                return f(handler, req, resp)
+                    # alias user for convenience
+                    req.context['oauth'] = oauth_req
+                    return f(handler, req, resp)
 
             return decorated
 
